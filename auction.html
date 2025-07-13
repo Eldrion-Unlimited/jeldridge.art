@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vault Auction – Lot 001</title>
+  <link rel="stylesheet" href="auction.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <section class="vault">
+    <div class="emblem">🔱</div>
+    <h1 class="lot-title">LOT 001 — VAULT RELEASE</h1>
+    <h2 class="art-title">J.Eldridge: Personal Sketchbook – Vault Edition</h2>
+
+    <div class="art-preview">
+      <img src="placeholder.jpg" alt="Vault Coloring Book Preview">
+      <p class="art-lore">
+        Inside, you’ll find rituals disguised as drawings.  
+        Blueprints of madness. Frame-ready linework.  
+        Pages lost in ink, shadow, and cigarette smoke.
+      </p>
+    </div>
+
+    <div class="bid-terminal">
+      <h3>🔥 Live Bidding (7 Seats)</h3>
+      <ul id="fake-bidders">
+        <li>Specter212</li>
+        <li>Oath_Seeker77</li>
+        <li>Vanta.Sigil</li>
+        <li>Lux_Sinner</li>
+        <li>NyxFrame</li>
+        <li>BelladonnaVIII</li>
+        <li>Eldritch_33</li>
+      </ul>
+      <div class="bids">
+        <button>$11</button>
+        <button>$33</button>
+        <button>$77</button>
+        <button>$111</button>
+      </div>
+    </div>
+
+    <div class="phrase-unlock">
+      <h3>🔐 Enter the Key Phrase</h3>
+      <input type="text" id="keyInput" placeholder="••••••••">
+      <button onclick="checkPhrase()">ENTER</button>
+    </div>
+
+    <div class="claim-zone" id="claimZone">
+      <h2>🩸 YOU ARE THE WITNESS</h2>
+      <a href="vault_release.pdf" class="claim-btn" download>CLAIM THE BOOK</a>
+    </div>
+  </section>
+
+  <script>
+    function checkPhrase() {
+      const input = document.getElementById("keyInput").value.toUpperCase().trim();
+      if (input === "TRIDENT") {
+        document.getElementById("claimZone").style.display = "block";
+      } else {
+        alert("Incorrect phrase.");
+      }
+    }
+  </script>
+
+</body>
+</html>
