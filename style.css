@@ -42,8 +42,8 @@ body {
   top: 35%;
   left:50%;
   transform: translate(-50%, -50%);
-  width: 40px; /*might need adjustment */
-  height: 150px; /* might need adjustment */
+  width: 10px; /*might need adjustment */
+  height: 25px; /* might need adjustment */
   z-index: 3;
   cursor: pointer;
 }
