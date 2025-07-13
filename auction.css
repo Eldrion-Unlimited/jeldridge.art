@@ -1,0 +1,136 @@
+body {
+  background: #0a0a0a;
+  color: #d4af37;
+  font-family: 'Space Mono', monospace;
+  margin: 0;
+  padding: 0;
+}
+
+.vault {
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  background: #111111;
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+}
+
+.emblem {
+  font-size: 60px;
+  text-shadow: 0 0 8px #d4af37;
+  margin-bottom: 10px;
+}
+
+.lot-title {
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.art-title {
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.art-preview img {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 12px;
+  border: 1px solid #d4af37;
+}
+
+.art-lore {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.bid-terminal {
+  margin: 40px 0 20px;
+}
+
+.bid-terminal ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.bid-terminal li {
+  font-family: 'Cinzel', serif;
+  margin: 4px 0;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.bids button {
+  background: transparent;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  padding: 8px 16px;
+  margin: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bids button:hover {
+  background: #d4af37;
+  color: #0a0a0a;
+  box-shadow: 0 0 10px #d4af37;
+}
+
+.phrase-unlock {
+  margin-top: 40px;
+}
+
+.phrase-unlock input {
+  padding: 8px;
+  border: none;
+  outline: none;
+  background: #222;
+  border-bottom: 2px solid #d4af37;
+  color: #fff;
+  font-size: 1rem;
+  width: 200px;
+  margin-right: 8px;
+  text-align: center;
+}
+
+.phrase-unlock button {
+  padding: 8px 14px;
+  border: 1px solid #d4af37;
+  background: transparent;
+  color: #d4af37;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.phrase-unlock button:hover {
+  background: #d4af37;
+  color: #0a0a0a;
+}
+
+.claim-zone {
+  display: none;
+  margin-top: 50px;
+}
+
+.claim-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 24px;
+  border: 2px solid #d4af37;
+  text-decoration: none;
+  color: #d4af37;
+  font-weight: bold;
+  font-family: 'Cinzel', serif;
+  transition: all 0.2s ease;
+}
+
+.claim-btn:hover {
+  background: #d4af37;
+  color: #0a0a0a;
+  box-shadow: 0 0 10px #d4af37;
+}
