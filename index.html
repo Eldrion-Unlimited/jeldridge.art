@@ -2,80 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>J. Eldridge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>J. Eldridge – Enter the Mind</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <section class="landing">
-    <img src="trident.png" alt="Trident Symbol" class="trident-img" />
-    <a href="auction.html" class="middle-prong" title="Access Granted"></a>
-    <h1 class="hero-title">J. Eldridge</h1>
-    <button class="enter-btn" onclick="dropTheUser()">ENTER THE MIND</button>
-  </section>
- <!-- 🧠 ABOUT -->
-  <section id="about" class="content-section">
-    <h2>About the Artist</h2>
-    <p>
-      J. Eldridge is not a name. It’s a threshold.<br>
-      Sculptor of systems. Painter of ghosts. Writer of invisible things.<br>
-      Every piece is a fragment recovered from collapse — broken first, then gilded.
-    </p>
-  </section>
-   <!-- 🖼️ GALLERY -->
-  <section class="content-section gallery">
-    <h2>Works in the Light</h2>
-    <div class="gallery-grid">
-      <img src="piece1.jpg" alt="Art 1" />
-      <img src="piece2.jpg" alt="Art 2" />
-      <img src="piece3.jpg" alt="Art 3" />
+  <div class="hero">
+    <div class="trident-container">
+      <img src="images/trident.png" alt="Golden Trident" class="trident" />
+      <div class="secret-button" onclick="location.href='auction.html'"></div>
+      <img src="images/signature.png" alt="J. Eldridge Signature" class="signature-img" />
     </div>
-  </section>
 
-  <!-- 🔐 VAULT -->
-  <section class="content-section">
-    <h2 style="opacity: 0.4;">You were not meant to see this</h2>
-    <a href="auction.html" class="vault-link">Enter the Vault</a>
-  </section>
+    <button class="enter-btn" onclick="document.getElementById('fallZone').scrollIntoView({ behavior: 'smooth' });">
+      ENTER THE MIND
+    </button>
+  </div>
 
-  <!-- 🩸 FOOTER -->
-  <footer>
-    <p>Made with ink, silence, and defiance.<br>© J.Eldridge. All rights reserved.</p>
-    <!-- <a href="weapon.html" class="hidden-link">Access the War Room</a> -->
-  </footer>
- <script>
-    document.getElementById("enter-btn").addEventListener("click", function () {
-      document.getElementById("drop-space").scrollIntoView({ behavior: "smooth" });
-    });
+  <div id="fallZone" class="fall-buffer"></div>
 
-    const trident = document.getElementById("trident");
-    trident.addEventListener("mousemove", function (e) {
-      const rect = trident.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const centerX = rect.width / 2;
-      const tolerance = 10;
+  <div class="content">
+    <section>
+      <h2>About Me</h2>
+      <p>Welcome to the mind of J. Eldridge. This space is more than just digital — it's dimensional.</p>
+    </section>
 
-      if (Math.abs(x - centerX) < tolerance) {
-        trident.classList.add("glow");
-      } else {
-        trident.classList.remove("glow");
-      }
-    });
+    <section>
+      <h2>Gallery</h2>
+      <p>Prepare to witness art with weight. Showcase coming soon.</p>
+    </section>
 
-    trident.addEventListener("mouseleave", () => {
-      trident.classList.remove("glow");
-    });
+    <section>
+      <h2>Contact</h2>
+      <p>Reach out through the aether... or maybe just the socials.</p>
+    </section>
+  </div>
 
-    trident.addEventListener("click", () => {
-      if (trident.classList.contains("glow")) {
-        window.location.href = "auction.html";
-      }
-    });
-  </script>
 </body>
 </html>
+
 
  
  
