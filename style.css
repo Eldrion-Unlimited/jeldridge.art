@@ -48,11 +48,6 @@ body {
   cursor: pointer;
 }
 
-/* Optional debug mode - remove once done */
-.middle-prong:hover {
-  outline: 1px dashed rgba(255, 255, 255, 0.2);
-}
-
 /* Glow effect on hover */
 .middle-prong:hover + .trident-img {
   opacity: 0.5;
