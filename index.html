@@ -45,10 +45,9 @@
     <p>Made with ink, silence, and defiance.<br>© J.Eldridge. All rights reserved.</p>
     <!-- <a href="weapon.html" class="hidden-link">Access the War Room</a> -->
   </footer>
-
  <script>
     document.getElementById("enter-btn").addEventListener("click", function () {
-      document.getElementById("content").scrollIntoView({ behavior: "smooth" });
+      document.getElementById("drop-space").scrollIntoView({ behavior: "smooth" });
     });
 
     const trident = document.getElementById("trident");
@@ -56,7 +55,7 @@
       const rect = trident.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const centerX = rect.width / 2;
-      const tolerance = 10; // pixels
+      const tolerance = 10;
 
       if (Math.abs(x - centerX) < tolerance) {
         trident.classList.add("glow");
@@ -71,10 +70,12 @@
 
     trident.addEventListener("click", () => {
       if (trident.classList.contains("glow")) {
-        window.location.href = "vault.html";
+        window.location.href = "auction.html";
       }
     });
   </script>
 </body>
 </html>
+
+ 
  
