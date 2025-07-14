@@ -49,8 +49,27 @@
   <!-- 👇 HARD DROP SCRIPT -->
   <script>
     function dropTheUser() {
-      window.scrollTo({
-        top: window.innerHeight * 5500, // ~400vh drop
+      const duration = 2500;
+      const distance =window.innerheight * 20;
+      const start = window.scrollY;
+      const startTime = performance.now();
+
+      function scrollStep(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeInOut = progress < 0.5;
+          ? 2 * prrogress * progress;
+          : -1 + (4 - 2 * progress) * progress;
+
+      window.scrollTo(0, start + easeinOut * distance);
+        if (progress <1) {
+          requestAnimationFrame(scrollstep);
+        }
+      }
+      
+      requestanimationframe!(scrollstep);
+    }
+  </script>
         left: 0,
         behavior: 'smooth'
       });
