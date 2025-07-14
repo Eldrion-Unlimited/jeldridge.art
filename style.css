@@ -18,10 +18,17 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: radial-gradiant;
   align-items: center;
   height: 100vh;
   text-align: center;
   position: relative;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #fff;
+  margin: 0.5em 0;
 }
 
 /* Trident Image */
@@ -82,4 +89,52 @@ body {
   background: #d4af37;
   color: #0a0a0a;
   box-shadow: 0 0 10px #d4af37;
+}
+
+
+#content {
+  padding: 15em 2em 5em;
+}
+
+section {
+  margin-bottom: 4em;
+}
+
+.glitch {
+  font-weight: bold;
+  color: #f00;
+  text-shadow: 1px 0 #fff, -1px 0 #0ff;
+  animation: glitch 0.3s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 1px 0 #fff, -1px 0 #0ff;
+  }
+  50% {
+    text-shadow: -1px 0 #fff, 1px 0 #0ff;
+  }
+  100% {
+    text-shadow: 1px 0 #fff, -1px 0 #0ff;
+  }
+}
+
+.vault-link {
+  display: inline-block;
+  margin-top: 1em;
+  font-size: 1.1em;
+  text-decoration: underline;
+  color: #aaa;
+  transition: color 0.3s;
+}
+
+.vault-link:hover {
+  color: #ffd700;
+}
+
+footer {
+  margin-top: 10em;
+  font-size: 0.9em;
+  color: #666;
+  text-align: center;
 }
