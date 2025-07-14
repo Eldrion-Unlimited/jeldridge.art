@@ -46,37 +46,35 @@
     <!-- <a href="weapon.html" class="hidden-link">Access the War Room</a> -->
   </footer>
 
-  <!-- 👇 HARD DROP SCRIPT -->
-  <script>
-    function dropTheUser() {
-      const duration = 2500;
-      const distance =window.innerheight * 20;
-      const start = window.scrollY;
-      const startTime = performance.now();
+ <script>
+    document.getElementById("enter-btn").addEventListener("click", function () {
+      document.getElementById("content").scrollIntoView({ behavior: "smooth" });
+    });
 
-      function scrollStep(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easeInOut = progress < 0.5;
-          ? 2 * prrogress * progress;
-          : -1 + (4 - 2 * progress) * progress;
+    const trident = document.getElementById("trident");
+    trident.addEventListener("mousemove", function (e) {
+      const rect = trident.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const centerX = rect.width / 2;
+      const tolerance = 10; // pixels
 
-      window.scrollTo(0, start + easeinOut * distance);
-        if (progress <1) {
-          requestAnimationFrame(scrollstep);
-        }
+      if (Math.abs(x - centerX) < tolerance) {
+        trident.classList.add("glow");
+      } else {
+        trident.classList.remove("glow");
       }
-      
-      requestanimationframe!(scrollstep);
-    }
-  </script>
-        left: 0,
-        behavior: 'smooth'
-      });
-    }
+    });
+
+    trident.addEventListener("mouseleave", () => {
+      trident.classList.remove("glow");
+    });
+
+    trident.addEventListener("click", () => {
+      if (trident.classList.contains("glow")) {
+        window.location.href = "vault.html";
+      }
+    });
   </script>
 </body>
 </html>
- 
-
  
