@@ -1,26 +1,18 @@
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  background: #0a0a0a;
-  color: #f2f2f2;
-  font-family: 'Space Mono', monospace;
-  height: 100vh;
-  overflow: hidden;
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  background-color: #111;
+  color: #fff;
+  overflow-x: hidden;
 }
 
-/* Landing Section */
-.landing {
+#hero {
+  height: 100vh;
+  background: radial-gradient(circle at center, #000, #111);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background: radial-gradiant;
   align-items: center;
-  height: 100vh;
+  justify-content: center;
   text-align: center;
   position: relative;
 }
@@ -31,16 +23,15 @@ h1 {
   margin: 0.5em 0;
 }
 
-/* Trident Image */
-.trident-img {
-  width: 280px;
-  height: auto;
-  opacity: 0.1;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-  pointer-events: none;
+#trident {
+  width: 80px;
+  margin-bottom: 1em;
+  transition: filter 0.3s ease;
+  cursor: pointer;
+}
+
+#trident.glow {
+  filter: drop-shadow(0 0 15px #ffd700) brightness(1.5);
 }
 
 /* Secret Clickable Zone */
@@ -61,39 +52,27 @@ h1 {
   filter: drop-shadow(0 0 12px #d4af37);
 }
 
-/* Hero Title */
-.hero-title {
-  font-family: 'Cinzel', serif;
-  font-size: 3.5rem;
-  color: #e6e6e6;
-  z-index: 2;
-  text-shadow: 0 0 5px #d4af37;
-}
-
-/* Enter Button */
-.enter-btn {
-  margin-top: 20px;
-  padding: 12px 28px;
-  background: transparent;
-  border: 2px solid #d4af37;
-  color: #d4af37;
-  font-family: 'Space Mono', monospace;
-  font-size: 1rem;
-  letter-spacing: 1px;
+#enter-btn {
+  background: none;
+  color: #ffd700;
+  border: 1px solid #ffd700;
+  padding: 0.5em 1em;
+  font-family: inherit;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  z-index: 2;
+  transition: background 0.3s;
 }
 
-.enter-btn:hover {
-  background: #d4af37;
-  color: #0a0a0a;
-  box-shadow: 0 0 10px #d4af37;
+#enter-btn:hover {
+  background: #ffd70033;
 }
 
+#drop-space {
+  height: 400em;
+  width: 100%;
+}
 
 #content {
-  padding: 15em 2em 5em;
+  padding: 5em 2em;
 }
 
 section {
@@ -108,15 +87,9 @@ section {
 }
 
 @keyframes glitch {
-  0% {
-    text-shadow: 1px 0 #fff, -1px 0 #0ff;
-  }
-  50% {
-    text-shadow: -1px 0 #fff, 1px 0 #0ff;
-  }
-  100% {
-    text-shadow: 1px 0 #fff, -1px 0 #0ff;
-  }
+  0% { text-shadow: 1px 0 #fff, -1px 0 #0ff; }
+  50% { text-shadow: -1px 0 #fff, 1px 0 #0ff; }
+  100% { text-shadow: 1px 0 #fff, -1px 0 #0ff; }
 }
 
 .vault-link {
