@@ -1,113 +1,100 @@
+/* GENERAL RESET + SCROLL BEHAVIOR */
 body {
   margin: 0;
-  font-family: 'Courier New', monospace;
-  background-color: #111;
-  color: #fff;
-  overflow-x: hidden;
+  padding: 0;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
 }
 
-#hero {
+/* HERO SECTION */
+.hero {
   height: 100vh;
-  background: radial-gradient(circle at center, #000, #111);
+  position: relative;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  text-align: center;
+  align-items: center;
+}
+
+/* TRIDENT IMAGE + SIGNATURE LAYERING */
+.trident-container {
   position: relative;
+  width: 300px;
+  height: auto;
 }
 
-h1 {
-  font-size: 3rem;
-  color: #fff;
-  margin: 0.5em 0;
-}
-
-#trident {
-  width: 80px;
-  margin-bottom: 1em;
-  transition: filter 0.3s ease;
-  cursor: pointer;
-}
-
-#trident.glow {
-  filter: drop-shadow(0 0 15px #ffd700) brightness(1.5);
-}
-
-/* Secret Clickable Zone */
-.middle-prong {
-  position: absolute;
-  top: 35%;
-  left:50%;
-  transform: translate(-50%, -50%);
-  width: 10px; /*might need adjustment */
-  height: 25px; /* might need adjustment */
-  z-index: 3;
-  cursor: pointer;
-}
-
-/* Glow effect on hover */
-.middle-prong:hover + .trident-img {
-  opacity: 0.5;
-  filter: drop-shadow(0 0 12px #d4af37);
-}
-
-#enter-btn {
-  background: none;
-  color: #ffd700;
-  border: 1px solid #ffd700;
-  padding: 0.5em 1em;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-#enter-btn:hover {
-  background: #ffd70033;
-}
-
-#drop-space {
-  height: 400em;
+.trident {
   width: 100%;
+  opacity: 0.25;
 }
 
-#content {
-  padding: 5em 2em;
+.signature-img {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* SECRET BUTTON (TIP OF MIDDLE PRONG) */
+.secret-button {
+  position: absolute;
+  top: 60px; /* Adjust this to align with your image's middle tip */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  background: transparent;
+  z-index: 10;
+}
+
+/* ENTER THE MIND BUTTON */
+.enter-btn {
+  margin-top: 30px;
+  padding: 20px 40px;
+  font-size: 1.2rem;
+  background: gold;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.enter-btn:hover {
+  transform: scale(1.05);
+}
+
+/* FALLING SCROLL AREA */
+.fall-buffer {
+  height: 4000vh;
+  background: transparent;
+}
+
+/* POST-DROP CONTENT */
+.content {
+  padding: 60px;
+  background-color: #0a0a0a;
 }
 
 section {
-  margin-bottom: 4em;
+  margin-bottom: 100px;
 }
 
-.glitch {
-  font-weight: bold;
-  color: #f00;
-  text-shadow: 1px 0 #fff, -1px 0 #0ff;
-  animation: glitch 0.3s infinite;
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: gold;
 }
 
-@keyframes glitch {
-  0% { text-shadow: 1px 0 #fff, -1px 0 #0ff; }
-  50% { text-shadow: -1px 0 #fff, 1px 0 #0ff; }
-  100% { text-shadow: 1px 0 #fff, -1px 0 #0ff; }
-}
-
-.vault-link {
-  display: inline-block;
-  margin-top: 1em;
-  font-size: 1.1em;
-  text-decoration: underline;
-  color: #aaa;
-  transition: color 0.3s;
-}
-
-.vault-link:hover {
-  color: #ffd700;
-}
-
-footer {
-  margin-top: 10em;
-  font-size: 0.9em;
-  color: #666;
-  text-align: center;
+section p {
+  font-size: 1rem;
+  line-height: 1.6;
 }
