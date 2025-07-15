@@ -15,12 +15,25 @@
       <img src="signature.png" alt="J. Eldridge Signature" class="signature-img" />
     </div>
 
-    <button class="enter-btn" onclick="document.getElementById('fallZone').scrollIntoView({ behavior: 'smooth' });">
-      ENTER THE MIND
-    </button>
+    <script>
+    function enterMind() {
+      window.scrollTo({
+        top: document.getElementById('fallZone').offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+<button class="enter-btn" onclick="enterMind()">ENTER THE MIND</button>
+    
   </div>
 
-  <div id="fallZone" class="fall-buffer"></div>
+  <div id="fallZone" class="fall-zone">
+   <div class="fall-content">
+    <div class="ambient-layer"></div>
+    <div class="tunnel-texture"></div>
+    <div class="starscape"></div>
+   </div>
+  </div>
 
   <div class="content">
     <section>
