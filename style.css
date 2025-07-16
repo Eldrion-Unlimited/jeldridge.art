@@ -17,6 +17,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 /* TRIDENT IMAGE + SIGNATURE LAYERING */
@@ -29,6 +30,7 @@ body {
 .trident {
   width: 100%;
   opacity: 0.25;
+  transition: filter 2s ease-in-out;
 }
 
 .signature-img {
@@ -41,10 +43,44 @@ body {
   opacity: 0.9;
 }
 
+/* FLICKERING SPOTLIGHT OVER TRIDENT */
+.light-flicker {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 20%, rgba(255, 255, 200, 0.2), transparent 70%);
+  opacity: 0;
+  animation: flickerAnim 3s ease-in-out forwards;
+  z-index: 5;
+}
+
+@keyframes flickerAnim {
+  0%   { opacity: 0; }
+  10%  { opacity: 0.4; }
+  15%  { opacity: 0; }
+  22%  { opacity: 0.5; }
+  28%  { opacity: 0; }
+  34%  { opacity: 0.3; }
+  40%  { opacity: 0; }
+  50%  { opacity: 0.6; }
+  60%  { opacity: 0; }
+  75%  { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+/* Trident glow after flicker */
+.light-flicker.flicker-done ~ .trident {
+  filter: drop-shadow(0 0 10px gold);
+}
+
 /* SECRET BUTTON (TIP OF MIDDLE PRONG) */
 .secret-button {
   position: absolute;
-  top: 60px; /* Adjust this to align with your image's middle tip */
+  top: 60px; /* Adjust to match trident image alignment */
   left: 50%;
   transform: translateX(-50%);
   width: 20px;
@@ -72,10 +108,52 @@ body {
   transform: scale(1.05);
 }
 
-/* FALLING SCROLL AREA */
-.fall-buffer {
+/* FALL ZONE – Long Scenic Descent */
+.fall-zone {
+  position: relative;
   height: 4000vh;
-  background: transparent;
+  overflow: hidden;
+}
+
+/* Parallax base styles */
+.parallax-layer {
+  will-change: transform;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Light shimmer during scroll */
+.ambient-layer {
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.06), transparent 70%);
+  animation: ambientPulse 5s ease-in-out infinite;
+  mix-blend-mode: screen;
+  z-index: 1;
+}
+
+@keyframes ambientPulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.6; }
+}
+
+/* Brick wall texture for tunnel effect */
+.brick-wall {
+  background-image: url('brick-wall.png');
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 0.08;
+  z-index: 0;
+}
+
+/* Cosmic starfield at the bottom of the fall */
+.cosmic-overlay {
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1)),
+              url('stars.png');
+  background-size: cover;
+  background-position: center bottom;
+  opacity: 0.2;
+  z-index: 2;
 }
 
 /* POST-DROP CONTENT */
@@ -98,3 +176,4 @@ section p {
   font-size: 1rem;
   line-height: 1.6;
 }
+
