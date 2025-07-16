@@ -10,29 +10,21 @@
 
   <div class="hero">
     <div class="trident-container">
+      <div class="light-flicker"></div>
       <img src="trident.png" alt="Golden Trident" class="trident" />
       <div class="secret-button" onclick="location.href='auction.html'"></div>
       <img src="signature.png" alt="J. Eldridge Signature" class="signature-img" />
     </div>
 
-    <script>
-    function enterMind() {
-      window.scrollTo({
-        top: document.getElementById('fallZone').offsetTop,
-        behavior: 'smooth'
-      });
-    }
-  </script>
-<button class="enter-btn" onclick="enterMind()">ENTER THE MIND</button>
-    
+    <button class="enter-btn" onclick="document.getElementById('fallZone').scrollIntoView({ behavior: 'smooth' });">
+      ENTER THE MIND
+    </button>
   </div>
 
   <div id="fallZone" class="fall-zone">
-   <div class="fall-content">
-    <div class="ambient-layer"></div>
-    <div class="tunnel-texture"></div>
-    <div class="starscape"></div>
-   </div>
+    <div class="parallax-layer ambient-layer" data-speed="-0.2"></div>
+    <div class="parallax-layer brick-wall" data-speed="0.4"></div>
+    <div class="parallax-layer cosmic-overlay" data-speed="-0.1"></div>
   </div>
 
   <div class="content">
@@ -52,9 +44,31 @@
     </section>
   </div>
 
+  <script>
+    // Trigger trident glow after flicker
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.querySelector('.light-flicker').classList.add('flicker-done');
+      }, 3000); // Matches 3s flickerAnim duration
+    });
+
+    // Parallax effect (supports reverse)
+    const layers = document.querySelectorAll('.parallax-layer');
+
+    function updateParallax() {
+      const scrolled = window.scrollY;
+
+      layers.forEach(layer => {
+        const speed = parseFloat(layer.getAttribute('data-speed'));
+        const movement = scrolled * speed;
+        layer.style.transform = `translateY(${movement}px)`;
+      });
+
+      requestAnimationFrame(updateParallax);
+    }
+
+    requestAnimationFrame(updateParallax);
+  </script>
+
 </body>
 </html>
-
-
- 
- 
