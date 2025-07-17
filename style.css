@@ -47,6 +47,12 @@ html, body {
   opacity: 0.9;
 }
 
+.signature-img.glow-in {
+  filter: drop-shadow(0 0 15px gold) brightness(1.2);
+  opacity: 1;
+  transition: filter 2s ease-in-out, opacity 2s ease-in-out;
+}
+
 /* SPOTLIGHT */
 .light-flicker {
   position: absolute;
