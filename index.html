@@ -2,65 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore the mind and art of J. Eldridge – digital gallery, creative insights, and contact." />
-  <meta name="keywords" content="J. Eldridge, art, digital, gallery, creativity, portfolio" />
-  <meta name="author" content="J. Eldridge" />
-  <title>J. Eldridge | Digital Art & Creativity - Official Website</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
-  <!-- Open Graph for social sharing -->
-  <meta property="og:title" content="J. Eldridge | Digital Art & Creativity" />
-  <meta property="og:description" content="Explore the mind and art of J. Eldridge." />
-  <meta property="og:image" content="https://yourdomain.com/preview.jpg" />
-  <meta property="og:type" content="website" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>J. Eldridge – Enter the Mind</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <noscript>
-    <p>Some features on this site require JavaScript. Please enable it for the best experience.</p>
-  </noscript>
 
-  <!-- HERO SECTION -->
-  <header class="hero" role="banner">
-    <img src="trident.png" alt="Golden Trident logo of J. Eldridge" class="trident" loading="lazy" />
-    <h1>J. Eldridge</h1>
-    <p>Digital Art &amp; Creativity</p>
-    <button class="enter-button" aria-label="Enter the mind of J. Eldridge" tabindex="0">ENTER THE MIND</button>
-    <img src="signature.png" alt="J. Eldridge Signature, digital script" class="signature" loading="lazy" />
-  </header>
+  <div class="hero">
+    <div class="trident-container">
+      <div class="light-flicker"></div>
+      <img src="trident.png" alt="Golden Trident" class="trident" />
+      <div class="secret-button" onclick="location.href='auction.html'"></div>
+      <img src="signature.png" alt="J. Eldridge Signature" class="signature-img" />
+    </div>
 
-  <main>
-    <!-- ABOUT SECTION -->
-    <section class="about" id="about">
+    <button class="enter-btn" id="enterBtn">ENTER THE MIND</button>
+  </div>
+
+  <div id="fallZone" class="fall-zone">
+    <div class="parallax-layer ambient-layer" data-speed="-0.2"></div>
+    <div class="parallax-layer brick-wall" data-speed="0.4"></div>
+    <div class="parallax-layer cosmic-overlay" data-speed="-0.1"></div>
+  </div>
+
+  <div class="content">
+    <section>
       <h2>About Me</h2>
-      <p>
-        Welcome to my digital domain. I am J. Eldridge, an artist and creator exploring the boundaries of imagination and technique. My work blends the abstract with the tangible, inviting you to embark on a journey through creativity. 
-      </p>
+      <p>Welcome to the mind of J. Eldridge. This space is more than just digital — it's dimensional.</p>
     </section>
 
-    <!-- GALLERY SECTION -->
-    <section class="gallery" id="gallery">
+    <section>
       <h2>Gallery</h2>
-      <img src="placeholder.jpg" alt="Gallery coming soon" loading="lazy" />
-      <p>Showcase coming soon. <a href="mailto:youremail@example.com">Contact me</a> for updates or collaborations!</p>
+      <p>Prepare to witness art with weight. Showcase coming soon.</p>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="contact" id="contact">
+    <section>
       <h2>Contact</h2>
-      <ul>
-        <li><a href="mailto:youremail@example.com" aria-label="Email J. Eldridge">Email</a></li>
-        <li><a href="https://twitter.com/yourhandle" target="_blank" rel="noopener" aria-label="J. Eldridge on Twitter">Twitter</a></li>
-        <!-- Add other social or professional links here -->
-      </ul>
+      <p>Reach out through the aether... or maybe just the socials.</p>
     </section>
-  </main>
-
-  <footer role="contentinfo">
-    <p>&copy; 2025 J. Eldridge</p>
-  </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
