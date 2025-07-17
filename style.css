@@ -1,28 +1,14 @@
-:root {
-  /* ===== COLOR & FONT VARIABLES ===== */
-  --color-bg: #0a0a0a;
-  --color-text: #fff;
-  --color-accent: gold;
-  --color-btn-text: #000;
-  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* ===============================
-   Global Styles
-================================== */
 html, body {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-main);
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;
 }
 
-/* ===============================
-   Hero Section
-================================== */
+/* HERO */
 .hero {
   height: 100vh;
   display: flex;
@@ -33,20 +19,24 @@ html, body {
   text-align: center;
   overflow: hidden;
 }
+
 .trident-container {
   position: relative;
   width: 300px;
   height: auto;
 }
+
 .trident {
   width: 100%;
   opacity: 0.25;
   transition: filter 2s ease-in-out;
 }
+
 .trident.glow-in {
   opacity: 1;
-  filter: drop-shadow(0 0 20px var(--color-accent)) brightness(1.5);
+  filter: drop-shadow(0 0 20px gold) brightness(1.5);
 }
+
 .signature-img {
   position: absolute;
   top: 48%;
@@ -57,18 +47,17 @@ html, body {
   opacity: 0.9;
 }
 
-/* ===============================
-   Spotlight Effects
-================================== */
+/* SPOTLIGHT */
 .light-flicker {
   position: absolute;
   top: 0;
   left: 50%;
-  width: 1000px;
+  width: 300px;
   height: 100vh;
   transform: translateX(-50%);
   z-index: 2;
   pointer-events: none;
+
   background: radial-gradient(
     ellipse at center top,
     rgba(255, 255, 220, 0.3) 0%,
@@ -76,11 +65,13 @@ html, body {
     rgba(255, 255, 150, 0.06) 60%,
     rgba(0, 0, 0, 0) 90%
   );
+
   clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
   filter: blur(6px) brightness(1.3);
   animation: flickerCone 3s ease-in-out forwards, dustFloat 8s infinite ease-in-out;
   opacity: 0;
 }
+
 @keyframes flickerCone {
   0%   { opacity: 0.05; }
   10%  { opacity: 0.4; }
@@ -90,32 +81,26 @@ html, body {
   70%  { opacity: 0.3; }
   100% { opacity: 0.7; }
 }
+
 @keyframes dustFloat {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50%      { transform: translateX(-50%) translateY(5px); }
 }
 
-/* ===============================
-   Buttons
-================================== */
 .enter-btn {
   margin-top: 2rem;
   padding: 1rem 2rem;
   font-size: 1.2rem;
-  background: var(--color-accent);
-  color: var(--color-btn-text);
+  background: gold;
+  color: black;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: transform 0.3s, background 0.3s, color 0.3s;
+  transition: transform 0.3s ease;
   z-index: 3;
 }
-.enter-btn:hover,
-.enter-btn:focus {
+.enter-btn:hover {
   transform: scale(1.05);
-  background: #ffd700; /* lighter gold for better feedback */
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
 }
 
 .secret-button {
@@ -130,14 +115,14 @@ html, body {
   z-index: 10;
 }
 
-/* ===============================
-   Parallax & Fall Zone
-================================== */
+/* FALL ZONE – Extended for descent */
 .fall-zone {
   position: relative;
   height: 4000vh;
   overflow: hidden;
 }
+
+/* Parallax */
 .parallax-layer {
   will-change: transform;
   position: absolute;
@@ -147,25 +132,53 @@ html, body {
   background-repeat: no-repeat;
   background-position: center;
 }
+
 .ambient-layer {
   background: radial-gradient(circle at center, rgba(255, 255, 255, 0.06), transparent 70%);
   animation: ambientPulse 5s ease-in-out infinite;
+  mix-blend-mode: screen;
+  z-index: 1;
 }
 
-/* ===============================
-   Responsive Design
-================================== */
-@media (max-width: 600px) {
-  .hero { height: 80vh; }
-  .trident-container { width: 90vw; }
-  .signature-img { width: 70vw; }
-  .enter-btn { font-size: 1rem; padding: 0.8rem 1.5rem; }
+.brick-wall {
+  background-image: url('brick-wall.png');
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 0.08;
+  z-index: 0;
 }
 
-/* ===============================
-   Additional Animations
-================================== */
+.cosmic-overlay {
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1)),
+              url('stars.png');
+  background-size: cover;
+  background-position: center bottom;
+  opacity: 0.2;
+  z-index: 3;
+}
+
 @keyframes ambientPulse {
-  0%, 100% { opacity: 0.8; }
-  50% { opacity: 1; }
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.6; }
+}
+
+/* CONTENT */
+.content {
+  padding: 60px;
+  background-color: #0a0a0a;
+}
+
+section {
+  margin-bottom: 100px;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: gold;
+}
+
+section p {
+  font-size: 1rem;
+  line-height: 1.6;
 }
