@@ -18,6 +18,7 @@ html, body {
   position: relative;
   text-align: center;
   overflow: hidden;
+  z-axis: 10;
 }
 
 .trident-container {
@@ -126,6 +127,9 @@ html, body {
   position: relative;
   height: 4000vh;
   overflow: hidden;
+  z-axis: 1;
+  #fallZone {
+  margin-top: -1px; /* or 100vh if needed to push it below */
 }
 
 /* Parallax */
