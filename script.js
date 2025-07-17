@@ -1,4 +1,3 @@
-// Scroll to full content section when button clicked
 document.addEventListener('DOMContentLoaded', () => {
   const enterBtn = document.getElementById('enterBtn');
   const contentSection = document.querySelector('.content');
@@ -11,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Flicker ends, then glow trident
 window.addEventListener('load', () => {
   const flicker = document.querySelector('.light-flicker');
   const trident = document.querySelector('.trident');
@@ -22,7 +20,7 @@ window.addEventListener('load', () => {
   }, 3000);
 });
 
-// Parallax effect
+// Parallax
 const layers = document.querySelectorAll('.parallax-layer');
 function updateParallax() {
   const scrolled = window.scrollY;
@@ -34,3 +32,4 @@ function updateParallax() {
   requestAnimationFrame(updateParallax);
 }
 requestAnimationFrame(updateParallax);
+
