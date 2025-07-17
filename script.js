@@ -30,7 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('load', () => {
   const flicker = document.querySelector('.light-flicker');
   const trident = document.querySelector('.trident');
+  const signature = document.querySelector('.signature-img');
 
   if (flicker && trident) {
     setTimeout(() => {
-      flicker.classList.add('flicker-done'
+      flicker.classList.add('flicker-done');
+      trident.classList.add('glow-in');
+      if (signature) {
+        signature.classList.add('glow-in');
+      }
+    }, 3000);
+  }
+});
