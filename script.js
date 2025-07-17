@@ -24,42 +24,46 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(animation);
   }
 
+  // Parallax effect setup, but don't activate yet
+  const layers = document.querySelectorAll('.parallax-layer');
+  let ticking = false;
+  const updateParallax = () => {
+    const scrolled = window.scrollY;
+    layers.forEach(layer => {
+      const speed = parseFloat(layer.getAttribute('data-speed')) || 0.08; // gentle default
+      layer.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+    ticking = false;
+  };
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  };
+
+  // Only start parallax after Enter is clicked
+  let parallaxStarted = false;
   if (enterBtn && contentSection) {
     enterBtn.addEventListener('click', (e) => {
       e.preventDefault();
       const targetY = contentSection.getBoundingClientRect().top + window.scrollY;
-      smoothScrollTo(targetY, 3000); // 3 seconds minimum
-    });
-  }
+      smoothScrollTo(targetY, 3000);
 
-  // Parallax effect - optimized for gentle movement
-  const layers = document.querySelectorAll('.parallax-layer');
-  if (layers.length > 0) {
-    let ticking = false;
+      // Fade in parallax layers
+      layers.forEach(layer => layer.classList.add('visible'));
 
-    const updateParallax = () => {
-      const scrolled = window.scrollY;
-      layers.forEach(layer => {
-        const speed = parseFloat(layer.getAttribute('data-speed')) || 0.08; // gentle default
-        layer.style.transform = `translateY(${scrolled * speed}px)`;
-      });
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateParallax);
-        ticking = true;
+      // Start parallax effect
+      if (!parallaxStarted) {
+        window.addEventListener('scroll', onScroll);
+        updateParallax();
+        parallaxStarted = true;
       }
-    };
-
-    window.addEventListener('scroll', onScroll);
-    // Initialize on load
-    updateParallax();
+    });
   }
 });
 
-// Trident glow after flicker
+// Trident glow after flicker (unchanged)
 window.addEventListener('load', () => {
   const flicker = document.querySelector('.light-flicker');
   const trident = document.querySelector('.trident');
