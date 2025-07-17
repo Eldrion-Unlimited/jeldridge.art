@@ -130,14 +130,16 @@ html, body {
 
 /* Parallax */
 .parallax-layer {
-  will-change: transform;
-  position: absolute;
-  width: 100%;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
   height: 100vh;
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
+  pointer-events: none;
+  z-index: 0; /* Adjust as needed */
 }
+
 
 .ambient-layer {
   background: radial-gradient(circle at center, rgba(255, 255, 255, 0.06), transparent 70%);
