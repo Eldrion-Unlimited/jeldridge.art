@@ -3,14 +3,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const enterBtn = document.getElementById('enterBtn');
   const contentSection = document.querySelector('.content');
 
+  // Custom smooth scroll function (3 seconds minimum)
+  function smoothScrollTo(targetY, duration = 3000) {
+    const startY = window.scrollY;
+    const distanceY = targetY - startY;
+    const startTime = performance.now();
+
+    function animation(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-in-out for smoothness
+      const ease = progress < 0.5
+        ? 2 * progress * progress
+        : -1 + (4 - 2 * progress) * progress;
+      window.scrollTo(0, startY + distanceY * ease);
+      if (progress < 1) {
+        requestAnimationFrame(animation);
+      }
+    }
+    requestAnimationFrame(animation);
+  }
+
   if (enterBtn && contentSection) {
     enterBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      contentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const targetY = contentSection.getBoundingClientRect().top + window.scrollY;
+      smoothScrollTo(targetY, 3000); // 3 seconds minimum
     });
   }
 
-  // Parallax effect - optimized
+  // Parallax effect - optimized for gentle movement
   const layers = document.querySelectorAll('.parallax-layer');
   if (layers.length > 0) {
     let ticking = false;
@@ -18,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateParallax = () => {
       const scrolled = window.scrollY;
       layers.forEach(layer => {
-        const speed = parseFloat(layer.getAttribute('data-speed')) || 0;
+        const speed = parseFloat(layer.getAttribute('data-speed')) || 0.08; // gentle default
         layer.style.transform = `translateY(${scrolled * speed}px)`;
       });
       ticking = false;
