@@ -130,7 +130,7 @@ body {
 /* FALL ZONE – Long Scenic Descent */
 .fall-zone {
   position: relative;
-  min-height: 100vh;
+  min-height: 4000vh;
   overflow: hidden;
 }
 
