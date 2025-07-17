@@ -16,9 +16,7 @@
       <img src="signature.png" alt="J. Eldridge Signature" class="signature-img" />
     </div>
 
-    <button class="enter-btn" onclick="document.getElementById('fallZone').scrollIntoView({ behavior: 'smooth' });">
-      ENTER THE MIND
-    </button>
+    <button class="enter-btn" id="enterBtn">ENTER THE MIND</button>
   </div>
 
   <div id="fallZone" class="fall-zone">
@@ -44,31 +42,7 @@
     </section>
   </div>
 
-  <script>
-    // Trigger trident glow after flicker
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.querySelector('.light-flicker').classList.add('flicker-done');
-      }, 3000); // Matches 3s flickerAnim duration
-    });
-
-    // Parallax effect (supports reverse)
-    const layers = document.querySelectorAll('.parallax-layer');
-
-    function updateParallax() {
-      const scrolled = window.scrollY;
-
-      layers.forEach(layer => {
-        const speed = parseFloat(layer.getAttribute('data-speed'));
-        const movement = scrolled * speed;
-        layer.style.transform = `translateY(${movement}px)`;
-      });
-
-      requestAnimationFrame(updateParallax);
-    }
-
-    requestAnimationFrame(updateParallax);
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
+
