@@ -8,7 +8,6 @@ html, body {
   overflow-x: hidden;
 }
 
-/* HERO */
 .hero {
   height: 100vh;
   display: flex;
@@ -17,14 +16,13 @@ html, body {
   align-items: center;
   position: relative;
   text-align: center;
+  z-index: 10;
   overflow: hidden;
-  z-axis: 10;
 }
 
 .trident-container {
   position: relative;
   width: 300px;
-  height: auto;
 }
 
 .trident {
@@ -46,21 +44,19 @@ html, body {
   width: 250px;
   pointer-events: none;
   opacity: 0.9;
+  transition: filter 2s ease-in-out;
 }
 
 .signature-img.glow-in {
   filter: drop-shadow(0 0 15px gold) brightness(1.2);
-  opacity: 1;
-  transition: filter 2s ease-in-out, opacity 2s ease-in-out;
 }
 
-/* SPOTLIGHT */
 .light-flicker {
   position: absolute;
   top: 0;
   left: 50%;
-  width: 1000px;
-  height: 200vh;
+  width: 300px;
+  height: 100vh;
   transform: translateX(-50%);
   z-index: 2;
   pointer-events: none;
@@ -94,22 +90,6 @@ html, body {
   50%      { transform: translateX(-50%) translateY(5px); }
 }
 
-.enter-btn {
-  margin-top: 2rem;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  background: gold;
-  color: black;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  z-index: 3;
-}
-.enter-btn:hover {
-  transform: scale(1.05);
-}
-
 .secret-button {
   position: absolute;
   top: 60px;
@@ -122,62 +102,46 @@ html, body {
   z-index: 10;
 }
 
-/* FALL ZONE – Extended for descent */
-.fall-zone {
-  position: relative;
-  height: 4000vh;
-  overflow: hidden;
-  z-axis: 1;
-  #fallZone {
-  margin-top: -1px; /* or 100vh if needed to push it below */
-}
-
-/* Parallax */
-.parallax-layer {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: -100vh;
-  background-size: cover;
-  background-position: center;
-  pointer-events: none;
-  z-index: 0; /* Adjust as needed */
-}
-
-
-.ambient-layer {
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.06), transparent 70%);
-  animation: ambientPulse 5s ease-in-out infinite;
-  mix-blend-mode: screen;
-  z-index: 1;
-}
-
-.brick-wall {
-  background-image: url('brick-wall.png');
-  background-size: cover;
-  background-attachment: fixed;
-  opacity: 0.08;
-  z-index: 0;
-}
-
-.cosmic-overlay {
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1)),
-              url('stars.png');
-  background-size: cover;
-  background-position: center bottom;
-  opacity: 0.2;
+.enter-btn {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background: gold;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
   z-index: 3;
 }
 
-@keyframes ambientPulse {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 0.6; }
+.enter-btn:hover {
+  transform: scale(1.05);
 }
 
-/* CONTENT */
+/* FALL ZONE with fade to white */
+.fall-zone {
+  height: 4000vh;
+  margin-top: 100vh;
+  background: linear-gradient(
+    to bottom,
+    #0a0a0a 0%,
+    #111111 25%,
+    #222222 50%,
+    #999999 85%,
+    #ffffff 100%
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  transition: background 2s ease;
+}
+
+/* CONTENT SECTION */
 .content {
   padding: 60px;
-  background-color: #0a0a0a;
+  background-color: #ffffff;
+  color: #111;
 }
 
 section {
@@ -194,3 +158,26 @@ section p {
   font-size: 1rem;
   line-height: 1.6;
 }
+
+/* BACK TO TOP BUTTON */
+.back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  background: black;
+  color: white;
+  border: 1px solid gold;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 99;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
