@@ -6,8 +6,29 @@ document.addEventListener('DOMContentLoaded', () => {
   if (enterBtn && contentSection) {
     enterBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      contentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+     function smoothScrollTo(targetY, duration = 2500) {
+  const startY = window.scrollY;
+  const distance = targetY - startY;
+  const startTime = performance.now();
+
+  function scrollStep(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1); // 0 to 1
+    const ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    window.scrollTo(0, startY + distance * ease);
+
+    if (progress < 1) requestAnimationFrame(scrollStep);
+  }
+
+  requestAnimationFrame(scrollStep);
+}
+
+enterBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const targetY = contentSection.offsetTop;
+  smoothScrollTo(targetY, 2500); // 👈 2500ms = 2.5s scroll
+});
+
   }
 
   // Back to top
