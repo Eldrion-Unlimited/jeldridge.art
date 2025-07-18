@@ -123,16 +123,18 @@ html, body {
 .fall-zone {
   height: 4000vh;
   margin-top: 100vh;
-  background-image: 
+
+  background-image:
     linear-gradient(
       to bottom,
-      rgba(10, 10, 10, 1) 0%,
-      rgba(17, 17, 17, 0.95) 25%,
-      rgba(34, 34, 34, 0.8) 50%,
-      rgba(153, 153, 153, 0.3) 85%,
+      rgba(10, 10, 10, 0.95) 0%,
+      rgba(50, 50, 50, 0.95) 30%,
+      rgba(150, 150, 150, 0.85) 65%,
+      rgba(240, 240, 240, 0.9) 90%,
       rgba(255, 255, 255, 1) 100%
     ),
     url("brick-wall.png");
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
