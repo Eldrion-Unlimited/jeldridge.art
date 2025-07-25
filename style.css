@@ -288,3 +288,35 @@ img {
     padding: 1rem;
   }
 }
+/* Make all images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+}
+
+/* Responsive fixes for mobile screens */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; /* Stack images */
+    gap: 2rem;
+  }
+
+  .gallery-item img,
+  .artwork-image {
+    width: 90vw !important;
+    max-width: 90vw !important;
+    height: auto !important;
+  }
+
+  .about-me {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+}
+
+.gallery,
+.content {
+  overflow-x: hidden;
+}
