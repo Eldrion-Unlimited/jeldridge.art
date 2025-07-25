@@ -267,3 +267,24 @@ img {
   }
 }
 
+/* Make all images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+}
+
+/* Limit size specifically on small screens */
+@media (max-width: 768px) {
+  .gallery img {
+    width: 90vw;
+    max-width: 500px;
+    height: auto;
+  }
+
+  .about-me {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+}
