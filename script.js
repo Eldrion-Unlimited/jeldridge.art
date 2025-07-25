@@ -1,3 +1,64 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const enterBtn = document.getElementById('enterBtn');
+  const contentSection = document.querySelector('.content');
+
+  function smoothScrollTo(targetY, duration = 2500) {
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    const startTime = performance.now();
+
+    function scrollStep(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      window.scrollTo(0, startY + distance * ease);
+
+      if (progress < 1) requestAnimationFrame(scrollStep);
+    }
+
+    requestAnimationFrame(scrollStep);
+  }
+
+  if (enterBtn && contentSection) {
+    enterBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetY = contentSection.offsetTop;
+      smoothScrollTo(targetY, 2500);
+    });
+  }
+
+  // Back to top button
+  const backToTop = document.getElementById('backToTop');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > window.innerHeight * 1.5) {
+      backToTop.classList.add('show');
+    } else {
+      backToTop.classList.remove('show');
+    }
+  });
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+window.addEventListener('load', () => {
+  const flicker = document.querySelector('.light-flicker');
+  const trident = document.querySelector('.trident');
+  const signature = document.querySelector('.signature-img');
+
+  if (flicker && trident) {
+    setTimeout(() => {
+      flicker.classList.add('flicker-done');
+      trident.classList.add('glow-in');
+      if (signature) {
+        signature.classList.add('glow-in');
+      }
+    }, 3000);
+  }
+});
+
 // BACK TO TOP BUTTON BEHAVIOR
 document.getElementById('backToTop').addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
