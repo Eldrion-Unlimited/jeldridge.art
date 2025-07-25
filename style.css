@@ -250,3 +250,20 @@ section p {
 .gallery-item:hover img {
   transform: scale(1.1);
 }
+
+/* Make all images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Optional: constrain large images even more on small screens */
+@media (max-width: 768px) {
+  .artwork-image {
+    width: 90%;
+    max-width: 500px;
+  }
+}
+
