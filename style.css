@@ -219,9 +219,9 @@ section p {
 .gallery-item img,
 .artwork-image {
   width: 100%;
-  height: auto;
+  max height: 280px;
   border-radius: 5px;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
 }
