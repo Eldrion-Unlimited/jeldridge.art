@@ -255,3 +255,39 @@ section p {
     padding: 1rem;
   }
 }
+
+/* Trident + Signature Glow After Flicker */
+.trident.glow-in,
+.signature-img.glow-in {
+  opacity: 1;
+  filter: drop-shadow(0 0 20px gold) brightness(1.5);
+}
+
+/* Gallery image scaling for mobile */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .gallery-item img {
+    width: 90vw !important;
+    max-width: 90vw !important;
+    height: auto !important;
+  }
+}
