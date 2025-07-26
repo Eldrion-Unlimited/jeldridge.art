@@ -96,3 +96,10 @@ window.addEventListener("load", () => {
     document.querySelector('.signature-img').classList.add('glow-in');
   }, 3000); // delay matches flicker duration
 });
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.querySelector('.trident').classList.add('glow-in');
+    document.querySelector('.signature-img').classList.add('glow-in');
+  }, 3000); // delay matches flicker duration
+});
+
