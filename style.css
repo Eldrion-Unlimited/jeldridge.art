@@ -1,4 +1,4 @@
- /* RESET + GLOBAL STYLES */
+/* RESET + GLOBAL STYLES */
 body {
   margin: 0;
   padding: 0;
@@ -219,9 +219,10 @@ section p {
 .gallery-item img,
 .artwork-image {
   width: 100%;
-  max height: 280px;
-  border-radius: 5px;
+  height: auto;
+  max-height: 280px;
   object-fit: cover;
+  border-radius: 5px;
   display: block;
   transition: transform 0.3s ease;
 }
@@ -233,6 +234,13 @@ section p {
 
 .gallery-item:hover img {
   transform: scale(1.1);
+}
+
+/* Trident + Signature Glow After Flicker */
+.trident.glow-in,
+.signature-img.glow-in {
+  opacity: 1;
+  filter: drop-shadow(0 0 20px gold) brightness(1.5);
 }
 
 /* MOBILE RESPONSIVENESS */
@@ -254,45 +262,28 @@ section p {
     font-size: 1rem;
     padding: 1rem;
   }
-}
 
-/* Trident + Signature Glow After Flicker */
-.trident.glow-in,
-.signature-img.glow-in {
-  opacity: 1;
-  filter: drop-shadow(0 0 20px gold) brightness(1.5);
-}
+  .artwork-detail {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
 
-/* Gallery image scaling for mobile */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+  .artwork-detail h1 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
 
-.gallery-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 5px;
-}
-
-@media (max-width: 768px) {
-  .gallery-grid {
+  .artwork-gallery {
     grid-template-columns: 1fr;
-    gap: 2rem;
   }
 
-  .gallery-item img {
-    width: 90vw !important;
-    max-width: 90vw !important;
-    height: auto !important;
+  .artwork-gallery img {
+    max-width: 95vw;
+    margin: auto;
   }
 }
 
-/* Artwork Detail Page Specific */
+/* Artwork Detail Page */
 .artwork-detail {
   max-width: 1000px;
   margin: auto;
@@ -332,28 +323,7 @@ section p {
   transform: scale(1.03);
 }
 
-/* Mobile Tweaks */
-@media (max-width: 768px) {
-  .artwork-detail {
-    padding: 1rem;
-    font-size: 0.95rem;
-  }
-
-  .artwork-detail h1 {
-    font-size: 1.6rem;
-    text-align: center;
-  }
-
-  .artwork-gallery {
-    grid-template-columns: 1fr;
-  }
-
-  .artwork-gallery img {
-    max-width: 95vw;
-    margin: auto;
-  }
-}
-
+/* Product Detail Block */
 .product-detail {
   max-width: 700px;
   margin: 40px auto;
