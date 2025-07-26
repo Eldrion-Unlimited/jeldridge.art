@@ -1,4 +1,4 @@
-/* GENERAL RESET + SCROLL BEHAVIOR */
+/* RESET + GLOBAL STYLES */
 body {
   margin: 0;
   padding: 0;
@@ -10,7 +10,22 @@ body {
   overflow-x: hidden;
 }
 
-/* HERO SECTION */
+section {
+  margin-bottom: 100px;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: gold;
+}
+
+section p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* HERO */
 .hero {
   height: 100vh;
   position: relative;
@@ -22,17 +37,10 @@ body {
   overflow: hidden;
 }
 
-/* TRIDENT IMAGE + SIGNATURE LAYERING */
 .trident-container {
   position: relative;
   width: 300px;
   height: auto;
-}
-
-.trident.glow-in,
-.signature-img.glow-in {
-  opacity: 1;
-  filter: drop-shadow(0 0 20px gold) brightness(1.5);
 }
 
 .trident {
@@ -51,7 +59,7 @@ body {
   opacity: 0.9;
 }
 
-/* FLICKERING SPOTLIGHT OVER TRIDENT */
+/* FLICKER */
 .light-flicker {
   position: absolute;
   top: 0;
@@ -75,34 +83,21 @@ body {
 }
 
 @keyframes flickerCone {
-  0%   { opacity: 0.05; }
-  10%  { opacity: 0.4; }
-  20%  { opacity: 0.2; }
-  30%  { opacity: 0.6; }
-  50%  { opacity: 1; }
-  70%  { opacity: 0.3; }
+  0% { opacity: 0.05; }
+  10% { opacity: 0.4; }
+  20% { opacity: 0.2; }
+  30% { opacity: 0.6; }
+  50% { opacity: 1; }
+  70% { opacity: 0.3; }
   100% { opacity: 0.7; }
 }
 
 @keyframes dustFloat {
   0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%      { transform: translateX(-50%) translateY(5px); }
+  50% { transform: translateX(-50%) translateY(5px); }
 }
 
-/* SECRET BUTTON */
-.secret-button {
-  position: absolute;
-  top: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  background: transparent;
-  z-index: 10;
-}
-
-/* ENTER THE MIND BUTTON */
+/* BUTTONS */
 .enter-btn {
   margin-top: 2rem;
   padding: 1rem 2rem;
@@ -121,7 +116,47 @@ body {
   transform: scale(1.05);
 }
 
-/* FALL ZONE – BRICK + GRADIENT COMBO */
+.back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  background: black;
+  color: white;
+  border: 1px solid gold;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 99;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hamburger-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  padding: 0.5em 0.7em;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s;
+}
+
+.hamburger-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* FALL ZONE */
 .fall-zone {
   height: 4000vh;
   margin-top: 100vh;
@@ -143,78 +178,34 @@ body {
   background-blend-mode: screen;
 }
 
-/* POST-DROP CONTENT */
+/* CONTENT */
 .content {
   padding: 60px;
   background: white;
   color: black;
+  overflow-x: hidden;
 }
 
-section {
-  margin-bottom: 100px;
-}
-
-section h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: gold;
-}
-
-section p {
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-/* BACK TO TOP BUTTON */
-.back-to-top {
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  padding: 10px 20px;
-  font-size: 0.9rem;
-  background: black;
-  color: white;
-  border: 1px solid gold;
-  border-radius: 5px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-  z-index: 99;
-}
-
-.back-to-top.show {
-  opacity: 1;
-  pointer-events: auto;
-
-/* HAMBURGER BUTTON */
-.hamburger-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 2rem;
-  padding: 0.5em 0.7em;
-  background-color: rgba(0, 0, 0, 0.75);
+/* GALLERY */
+.gallery {
+  padding: 4rem 2rem;
+  background-color: #111;
   color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 1000;
-  transition: background-color 0.3s;
+  text-align: center;
+  overflow-x: hidden;
 }
 
-.hamburger-btn:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+.gallery h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
 }
 
-/* 🔥 IMAGE SMASH FIX 🔥 */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  box-sizing: border-box;
 }
 
 .gallery-item {
@@ -222,27 +213,33 @@ section p {
   padding: 10px;
   border-radius: 8px;
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery-item img,
 .artwork-image {
   width: 100%;
-  max-width: 100%;
   height: auto;
-  display: block;
   border-radius: 5px;
   object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
-/* 💥 MOBILE SLAPDOWN */
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* MOBILE RESPONSIVENESS */
 @media (max-width: 768px) {
   .gallery-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
-  }
-
-  .gallery-item {
-    padding: 0;
   }
 
   .gallery-item img,
