@@ -1,4 +1,4 @@
-/* RESET + GLOBAL STYLES */
+ /* RESET + GLOBAL STYLES */
 body {
   margin: 0;
   padding: 0;
@@ -352,4 +352,40 @@ section p {
     max-width: 95vw;
     margin: auto;
   }
+}
+
+.product-detail {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: #fff;
+}
+
+.product-detail h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.product-detail .product-image {
+  width: 100%;
+  max-height: 450px;
+  object-fit: contain;
+  margin: 20px 0;
+  border-radius: 6px;
+}
+
+.product-detail ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.download-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background-color: #ff8c42;
+  color: #000;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
 }
