@@ -206,24 +206,15 @@ section p {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* GALLERY */
-.gallery {
-  padding: 4rem 2rem;
-  background-color: #111;
-  color: #fff;
-  text-align: center;
-}
-
-.gallery h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-}
-
+/* 🔥 IMAGE SMASH FIX 🔥 */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
-  perspective: 800px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .gallery-item {
@@ -231,76 +222,27 @@ section p {
   padding: 10px;
   border-radius: 8px;
   overflow: hidden;
-  transform-style: preserve-3d;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.gallery-item img {
+.gallery-item img,
+.artwork-image {
   width: 100%;
+  max-width: 100%;
+  height: auto;
   display: block;
   border-radius: 5px;
-  transition: transform 0.3s ease;
+  object-fit: contain;
 }
 
-.gallery-item:hover {
-  transform: rotateY(4deg) rotateX(4deg) scale(1.03);
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
-}
-
-.gallery-item:hover img {
-  transform: scale(1.1);
-}
-
-/* Make all images responsive */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Optional: constrain large images even more on small screens */
-@media (max-width: 768px) {
-  .artwork-image {
-    width: 90%;
-    max-width: 500px;
-  }
-}
-
-/* Make all images responsive */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1rem auto;
-}
-
-/* Limit size specifically on small screens */
-@media (max-width: 768px) {
-  .gallery img {
-    width: 90vw;
-    max-width: 500px;
-    height: auto;
-  }
-
-  .about-me {
-    font-size: 1.1rem;
-    padding: 1rem;
-  }
-}
-/* Make all images responsive */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1rem auto;
-}
-
-/* Responsive fixes for mobile screens */
+/* 💥 MOBILE SLAPDOWN */
 @media (max-width: 768px) {
   .gallery-grid {
-    grid-template-columns: 1fr; /* Stack images */
+    grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .gallery-item {
+    padding: 0;
   }
 
   .gallery-item img,
@@ -308,15 +250,11 @@ img {
     width: 90vw !important;
     max-width: 90vw !important;
     height: auto !important;
+    margin: 0 auto;
   }
 
   .about-me {
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 1rem;
   }
-}
-
-.gallery,
-.content {
-  overflow-x: hidden;
 }
