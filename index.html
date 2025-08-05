@@ -1,85 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>J. Eldridge – Enter the Mind</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Optimized Mobile PWA</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#000000">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <style>
+    /* ----------- MINIFIED CSS ----------- */
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{width:100%;height:100%;background:#000;overflow-x:hidden;font-family:Arial,sans-serif;color:#fff;-webkit-tap-highlight-color:transparent;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+    #backToTop{position:fixed;bottom:2rem;right:2rem;display:flex;align-items:center;justify-content:center;width:50px;height:50px;background:rgba(255,255,255,.1);color:white;border-radius:50%;font-size:2rem;cursor:pointer;opacity:0;transform:scale(.8);pointer-events:none;transition:opacity .3s ease,transform .3s ease;backdrop-filter:blur(8px)}
+    #backToTop.show{opacity:1;transform:scale(1);pointer-events:auto}
+    #hamburgerBtn{position:fixed;top:1rem;right:1rem;width:40px;height:40px;background:transparent;border:none;cursor:pointer;z-index:1000;transition:transform .3s ease}
+    #hamburgerBtn:active{transform:scale(.9)}
+    .content{padding:4rem 2rem;max-width:1200px;margin:auto}
+    .gallery-item{display:block;width:100%;max-width:280px;margin:1rem auto;perspective:1000px;transform-style:preserve-3d;transition:transform .2s ease-out;will-change:transform}
+    .gallery-item img{width:100%;height:auto;border-radius:12px;display:block;backface-visibility:hidden}
+    .trident,.signature-img{opacity:0;transform:scale(.9);transition:opacity 1s ease,transform 1s ease;will-change:transform,opacity}
+    .trident.glow-in,.signature-img.glow-in{opacity:1;transform:scale(1)}
+    .light-flicker{animation:flicker 3s linear forwards}
+    .light-flicker.flicker-done{animation:none;opacity:1}
+    @keyframes flicker{0%,19.999%,22%,62.999%,64%,100%{opacity:1}20%,21%,63%,64%{opacity:0}}
+    @media(min-width:768px){.gallery-item{max-width:300px;margin:1.5rem}.content{padding:6rem 4rem}}
+    @media(min-width:1200px){#backToTop{bottom:3rem;right:3rem}}
+  </style>
 </head>
 <body>
 
-  <div class="hero">
-    <div class="trident-container">
-      <div class="light-flicker"></div>
-      <img src="trident.png" alt="Golden Trident" class="trident" />
-      <div class="secret-button" onclick="location.href='auction.html'"></div>
-      <img src="signature.png" alt="J. Eldridge Signature" class="signature-img" />
-    </div>
-    <button class="enter-btn" id="enterBtn">ENTER THE MIND</button>
-  </div>
+  <!-- Hamburger Menu -->
+  <button id="hamburgerBtn">☰</button>
 
-  <div id="fallZone" class="fall-zone"></div>
+  <!-- Back to Top -->
+  <div id="backToTop">↑</div>
 
+  <!-- Main Content -->
   <div class="content">
-    <section class="about-me">
-      <h2>About Me</h2>
-      <p>
-        Hey, I’m J. Eldridge — Marine Corps vet turned full-time maker of stuff. I’ve built helicopter engines, welded just about every metal you can name, bent tubes, blown glass, rigged up CAD files, and now I pour all that into my art. My work is raw, experimental, and unapologetically all over the place — from sculpture to sketch, digital to physical, serious to straight-up absurd. Some of it’s deep. Some of it’s funny. Some of it’s definitely NSFW. Viewer discretion? Highly recommended.
-      </p>
-    </section>
-
-    <section class="gallery">
-      <h2>Gallery</h2>
-      <h3>Click on Tile for more info!</h3>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <a href="kaiko1.html">
-            <img src="kaiko1.jpeg" alt="Kaiko artwork by J. Eldridge" class="artwork-image" />
-            <div class="title-overlay" />
-            <h3>Kaiko"Nostalgia"<h3>
-            </div>
-          </a>
-        </div>
-        <!-- Add more artwork tiles as needed -->
-         <div class="gallery-grid">
-        <div class="gallery-item">
-          <a href="lvl2.html">
-            <img src="lvl2.PNG" alt="Kaiko artwork by J. Eldridge" class="artwork-image" />
-            <div class="title-overlay" />
-            <h3>Lvl. 2! GO!</h3>
-            <p>imagine...</p>
-            </div> 
-          </a>
-        </div>
-      </div>
-        <div class="gallery-item" onclick="location.href='chatgptitty.html'">
-  <img src="chatgptitty.jpg" alt="ChatGPTitty Gallery by J. Eldridge" class="artwork-image" />
-  <div class="title-overlay">
-  <h3>Chat GPTitty</h3>
-  <p> 18 n' up!<br>You've been warned!</p>
+    <h1 class="trident light-flicker">Welcome</h1>
+    <img src="signature.png" class="signature-img" alt="Signature" />
+    
+    <div class="gallery-item">
+      <img src="example1.jpg" alt="Gallery Item 1">
+    </div>
+    <div class="gallery-item">
+      <img src="example2.jpg" alt="Gallery Item 2">
+    </div>
   </div>
-</div>
-<div class="gallery-tile" onclick="location.href='elegantonion.html'">
-  <img src="elegantonion1.jpg" alt="ElegantOnion Water Pipe" class="artwork-image" />
-  <div class="tile-overlay">
-    <h3>ElegantOnion</h3>
-    <p>Amber Edition</p>
-  </div>
-</div>
 
-    <section>
-      <h2>Contact</h2>
-      <p>Reach out through the aether... or maybe just the socials.</p>
-    </section>
-    <section>
-      <h2>Shop Now!</h2>
-      <p> If you've made it this far, I am beyond greatful for your time, and intrest! If you you saw something you liked enough to hang on your own wall, or someone else's! The wait is almost over!</p>
-      <button class="shop-btn" oneclick="location.href="shop.html">Beyond this Click, It's Consentual!</button>
-    </section>
-          
-  <button id="backToTop" class="back-to-top">⬆ BACK TO TOP</button>
-  <button id="hamburgerBtn" class="hamburger-btn" style="display: none;">☰</button>
+  <!-- Optimized JS -->
+  <script defer>
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('show', window.scrollY > 300);
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-  <script src="script.js"></script>
+    // Hamburger menu placeholder
+    document.getElementById('hamburgerBtn').addEventListener('click', () => {
+      alert('Hamburger clicked! Add menu logic here.');
+    });
+
+    // Glow/Flicker
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.trident, .signature-img').forEach(el => el.classList.add('glow-in'));
+      document.querySelectorAll('.light-flicker').forEach(el => {
+        setTimeout(()=> el.classList.add('flicker-done'), 3000);
+      });
+    });
+
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').catch(console.error);
+    }
+  </script>
 </body>
 </html>
