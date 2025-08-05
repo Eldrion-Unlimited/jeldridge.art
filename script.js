@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const ease = 1 - Math.pow(1 - progress, 3); // cubic ease-out
+
       window.scrollTo(0, startY + distance * ease);
 
       if (progress < 1) requestAnimationFrame(scrollStep);
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
-   * Scroll to content on Enter button click
+   * Scroll to content on Enter button click (reverse back-to-top)
    */
   if (enterBtn && contentSection) {
     enterBtn.addEventListener('click', (e) => {
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
-   * Show/Hide back-to-top button
+   * Show/Hide back-to-top button on scroll
    */
   if (backToTop) {
     window.addEventListener('scroll', () => {
@@ -52,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
-      // Hide hamburger during scroll to prevent flicker
+      // Optional: hide hamburger during scroll to prevent flicker
       if (hamburger) {
         hamburger.style.display = 'none';
         setTimeout(() => {
