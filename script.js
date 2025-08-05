@@ -1,8 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
   const enterBtn = document.getElementById('enterBtn');
   const contentSection = document.querySelector('.content');
+  const backToTop = document.getElementById('backToTop');
+  const hamburger = document.getElementById('hamburgerBtn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
 
-  function smoothScrollTo(targetY, duration = 2500) {
+  /**
+   * Smooth scroll function using requestAnimationFrame
+   */
+  function smoothScrollTo(targetY, duration = 1500) {
     const startY = window.scrollY;
     const distance = targetY - startY;
     const startTime = performance.now();
@@ -10,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function scrollStep(currentTime) {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
+      const ease = 1 - Math.pow(1 - progress, 3); // Smooth cubic ease
       window.scrollTo(0, startY + distance * ease);
 
       if (progress < 1) requestAnimationFrame(scrollStep);
@@ -19,87 +25,67 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(scrollStep);
   }
 
+  /**
+   * Scroll to content on Enter button click
+   */
   if (enterBtn && contentSection) {
     enterBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      const targetY = contentSection.offsetTop;
-      smoothScrollTo(targetY, 2500);
+      smoothScrollTo(contentSection.offsetTop, 1500);
     });
   }
 
-  // Back to top button
-  const backToTop = document.getElementById('backToTop');
+  /**
+   * Show/Hide back-to-top button
+   */
+  if (backToTop) {
+    window.addEventListener('scroll', () => {
+      // Use requestAnimationFrame for smoother performance
+      requestAnimationFrame(() => {
+        if (window.scrollY > window.innerHeight * 1.5) {
+          backToTop.classList.add('show');
+        } else {
+          backToTop.classList.remove('show');
+        }
+      });
+    });
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > window.innerHeight * 1.5) {
-      backToTop.classList.add('show');
-    } else {
-      backToTop.classList.remove('show');
-    }
-  });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-});
-
-window.addEventListener('load', () => {
-  const flicker = document.querySelector('.light-flicker');
-  const trident = document.querySelector('.trident');
-  const signature = document.querySelector('.signature-img');
-
-  if (flicker && trident) {
-    setTimeout(() => {
-      flicker.classList.add('flicker-done');
-      trident.classList.add('glow-in');
-      if (signature) {
-        signature.classList.add('glow-in');
+      // Delay showing hamburger to avoid showing during scroll
+      if (hamburger) {
+        hamburger.style.display = 'none';
+        setTimeout(() => {
+          hamburger.style.display = 'block';
+        }, 800);
       }
-    }, 3000);
+    });
   }
-});
 
-// BACK TO TOP BUTTON BEHAVIOR
-document.getElementById('backToTop').addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  /**
+   * Gallery mouse/touch tilt effect
+   * - Uses requestAnimationFrame for smoother performance
+   * - Falls back to touchmove for mobile devices
+   */
+  galleryItems.forEach(item => {
+    let animationFrame;
 
-  // Delay showing hamburger to avoid showing during scroll
-  setTimeout(() => {
-    const hamburger = document.getElementById('hamburgerBtn');
-    if (hamburger) hamburger.style.display = 'block';
-  }, 800);
-});
+    function applyTilt(x, y, rect) {
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -5;
+      const rotateY = ((x - centerX) / centerX) * 5;
+      item.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+    }
 
-// OPTIONAL: Gallery mouse tilt
-document.querySelectorAll('.gallery-item').forEach(item => {
-  item.addEventListener('mousemove', (e) => {
-    const rect = item.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
+    function handleMove(clientX, clientY) {
+      if (animationFrame) cancelAnimationFrame(animationFrame);
+      animationFrame = requestAnimationFrame(() => {
+        const rect = item.getBoundingClientRect();
+        applyTilt(clientX - rect.left, clientY - rect.top, rect);
+      });
+    }
 
-    const rotateX = ((y - centerY) / centerY) * -5;
-    const rotateY = ((x - centerX) / centerX) * 5;
-
-    item.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-  });
-
-  item.addEventListener('mouseleave', () => {
-    item.style.transform = '';
-  });
-});
-
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    document.querySelector('.trident').classList.add('glow-in');
-    document.querySelector('.signature-img').classList.add('glow-in');
-  }, 3000); // delay matches flicker duration
-});
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    document.querySelector('.trident').classList.add('glow-in');
-    document.querySelector('.signature-img').classList.add('glow-in');
-  }, 3000); // delay matches flicker duration
-});
-
+    item.addEventListener('mousemove', e => handleMove(e.clientX, e.clientY));
+    item.addEventListener('mouseleave', () => item.style.transform = '');
