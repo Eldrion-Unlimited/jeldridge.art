@@ -11,12 +11,30 @@
   <div class="hero">
     <div class="trident-container">
       <div class="light-flicker"></div>
+
+      <!-- Lazy loaded trident -->
       <img src="trident.png" alt="Golden Trident" class="trident" loading="lazy" />
+
+      <!-- Secret button easter egg -->
       <div class="secret-button" onclick="location.href='auction.html'"></div>
+
+      <!-- Lazy loaded signature -->
       <img src="signature.png" alt="J. Eldridge Signature" class="signature-img" loading="lazy" />
     </div>
+
     <button class="enter-btn" onclick="location.href='mind.html'">ENTER THE MIND</button>
   </div>
 
+  <script>
+    // Trigger glow effect after flicker
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.querySelector('.trident').classList.add('glow-in');
+        document.querySelector('.signature-img').classList.add('glow-in');
+      }, 3000); // Matches flicker animation
+    });
+  </script>
+
 </body>
 </html>
+
