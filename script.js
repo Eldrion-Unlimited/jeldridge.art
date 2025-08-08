@@ -6,6 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const hero = document.querySelector('.hero');
   const backToTop = document.getElementById('backToTop');
 
+ window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelector('.trident').classList.add('glow-in');
+    document.querySelector('.signature-img').classList.add('glow-in');
+  }, 3000); // After flicker animation
+});
+
   // ENTER THE MIND → Reveal site
   if (enterBtn) {
     enterBtn.addEventListener('click', () => {
