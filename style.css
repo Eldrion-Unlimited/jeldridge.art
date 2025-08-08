@@ -59,7 +59,7 @@ section p {
   opacity: 0.9;
 }
 
-/* FLICKER */
+/* FLICKER SPOTLIGHT */
 .light-flicker {
   position: absolute;
   top: 0;
@@ -97,7 +97,14 @@ section p {
   50% { transform: translateX(-50%) translateY(5px); }
 }
 
-/* BUTTONS */
+/* GLOW-IN EFFECT */
+.trident.glow-in,
+.signature-img.glow-in {
+  opacity: 1;
+  filter: drop-shadow(0 0 20px gold) brightness(1.5);
+}
+
+/* ENTER BUTTON */
 .enter-btn {
   margin-top: 2rem;
   padding: 1rem 2rem;
@@ -116,6 +123,7 @@ section p {
   transform: scale(1.05);
 }
 
+/* BACK TO TOP */
 .back-to-top {
   position: fixed;
   bottom: 40px;
@@ -137,6 +145,7 @@ section p {
   pointer-events: auto;
 }
 
+/* HAMBURGER */
 .hamburger-btn {
   position: fixed;
   top: 20px;
@@ -154,28 +163,6 @@ section p {
 
 .hamburger-btn:hover {
   background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* FALL ZONE */
-.fall-zone {
-  height: 4000vh;
-  margin-top: 100vh;
-  background-image:
-    linear-gradient(
-      to bottom,
-      rgba(10, 10, 10, 0.9) 0%,
-      rgba(50, 50, 50, 0.8) 10%,
-      rgba(120, 120, 120, 0.7) 30%,
-      rgba(180, 180, 180, 0.6) 50%,
-      rgba(230, 230, 230, 0.5) 75%,
-      rgba(255, 255, 255, 1) 100%
-    ),
-    url('brick-wall.png');
-  background-size: cover;
-  background-repeat: repeat-y;
-  background-position: center top;
-  background-attachment: fixed;
-  background-blend-mode: screen;
 }
 
 /* CONTENT */
@@ -236,54 +223,7 @@ section p {
   transform: scale(1.1);
 }
 
-/* Trident + Signature Glow After Flicker */
-.trident.glow-in,
-.signature-img.glow-in {
-  opacity: 1;
-  filter: drop-shadow(0 0 20px gold) brightness(1.5);
-}
-
-/* MOBILE RESPONSIVENESS */
-@media (max-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .gallery-item img,
-  .artwork-image {
-    width: 90vw !important;
-    max-width: 90vw !important;
-    height: auto !important;
-    margin: 0 auto;
-  }
-
-  .about-me {
-    font-size: 1rem;
-    padding: 1rem;
-  }
-
-  .artwork-detail {
-    padding: 1rem;
-    font-size: 0.95rem;
-  }
-
-  .artwork-detail h1 {
-    font-size: 1.6rem;
-    text-align: center;
-  }
-
-  .artwork-gallery {
-    grid-template-columns: 1fr;
-  }
-
-  .artwork-gallery img {
-    max-width: 95vw;
-    margin: auto;
-  }
-}
-
-/* Artwork Detail Page */
+/* ARTWORK DETAIL PAGE */
 .artwork-detail {
   max-width: 1000px;
   margin: auto;
@@ -323,7 +263,7 @@ section p {
   transform: scale(1.03);
 }
 
-/* Product Detail Block */
+/* SHOP */
 .product-detail {
   max-width: 700px;
   margin: 40px auto;
@@ -359,3 +299,11 @@ section p {
   border-radius: 4px;
   font-weight: bold;
 }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
