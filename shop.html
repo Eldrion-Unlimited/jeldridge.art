@@ -3,110 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>J. Eldridge – Shop</title>
+  <title>Shop – J. Eldridge Art</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .shop-container {
-      padding: 50px 20px;
-      background: #0a0a0a;
-      color: white;
-    }
-
-    .shop-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .product-card {
-      background: #111;
-      border: 1px solid #444;
-      border-radius: 8px;
-      overflow: hidden;
-      text-align: center;
-      padding: 10px;
-      transition: transform 0.2s ease;
-    }
-
-    .product-card:hover {
-      transform: scale(1.03);
-    }
-
-    .product-card img {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-    }
-
-    .product-title {
-      font-size: 1.3rem;
-      margin: 10px 0;
-      color: gold;
-    }
-
-    .product-price {
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    .product-link {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 16px;
-      background: gold;
-      color: black;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-
-    .product-link:hover {
-      background: #fff200;
-    }
-  </style>
 </head>
 <body>
+  <div class="artwork-detail">
+    <h1>J. Eldridge Art Shop</h1>
+    <p class="description">
+      Limited prints. High-quality archival paper. Some framed, some raw. All made to order, signed when possible. Click on any piece to preview size and framing options.
+    </p>
 
-  <div class="shop-container">
-    <h1 style="text-align:center;">🛒 J. Eldridge Shop</h1>
-    <div class="shop-grid">
-
-      <!-- Kaiko -->
-      <div class="product-card">
-        <img src="kaiko1.jpeg" alt="Kaiko">
-        <div class="product-title">Kaiko</div>
-        <div class="product-price">$850 original / $40 prints</div>
-        <a href="kaiko1.html" class="product-link">View Details</a>
+    <div class="artwork-gallery">
+      <div class="gallery-item" onclick="location.href='kaiko1.html'">
+        <img src="kaiko1.jpeg" alt="Kaiko for sale" />
+        <h3>Kaiko “Nostalgia”</h3>
       </div>
 
-      <!-- Lvl 2 GO -->
-      <div class="product-card">
-        <img src="lvl2.PNG" alt="Lvl 2 GO">
-        <div class="product-title">Lvl 2! GO!</div>
-        <div class="product-price">$775 original / $35 prints</div>
-        <a href="lvl2.html" class="product-link">View Details</a>
+      <div class="gallery-item" onclick="location.href='lvl2.html'">
+        <img src="lvl2.PNG" alt="Lvl2 for sale" />
+        <h3>Lvl. 2! GO!</h3>
       </div>
 
-      <!-- DoubleOnion Water Pipe -->
-      <div class="product-card">
-        <img src="elegantonion1.jpg" alt="DoubleOnion Pipe">
-        <div class="product-title">DoubleOnion</div>
-        <div class="product-price">$60 – Handmade 1/1</div>
-        <a href="elegantonion.html" class="product-link">View Details</a>
+      <div class="gallery-item" onclick="location.href='elegantonion.html'">
+        <img src="elegantonion1.jpg" alt="ElegantOnion for sale" />
+        <h3>ElegantOnion (Amber Edition)</h3>
       </div>
 
-      <!-- Sticker Pack -->
-      <div class="product-card">
-        <img src="chatgptitty4.jpeg" alt="Sticker Pack">
-        <div class="product-title">Sticker Packs</div>
-        <div class="product-price">5 for $5, 10 for $8, 20 for $12</div>
-        <a href="#" class="product-link">DM to Buy</a>
+      <div class="gallery-item" onclick="location.href='chatgptitty.html'">
+        <img src="chatgptitty.jpg" alt="ChatGPTitty print" />
+        <h3>Chat GPTitty (Select Prints)</h3>
       </div>
-
     </div>
-  </div>
 
+    <p style="margin-top: 2rem;">Prices vary by piece and size. Shipping available worldwide. Want something not listed here? Reach out directly.</p>
+    <a href="index.html" class="download-btn">Back to Gallery</a>
+  </div>
 </body>
 </html>
+
+
