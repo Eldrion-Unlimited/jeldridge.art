@@ -324,8 +324,8 @@ section p {
   color: white;
   -webkit-text-stroke: 0.8px black;
   text-shadow:
-    1px 1px 0 black,
-   -1px 1px 0 black,
-    1px -1px 0 black,
-   -1px -1px 0 black;
+    0.5px 0.5px 0 black,
+   -0.5px 0.5px 0 black,
+    0.5px -0.5px 0 black,
+   -0.5px -0.5px 0 black;
 }
