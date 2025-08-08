@@ -322,11 +322,10 @@ section p {
 /* Outline Text Class */
 .outlined-text {
   color: white;
-  -webkit-text-stroke: 1.2px black;
+  -webkit-text-stroke: 0.8px black;
   text-shadow:
     1px 1px 0 black,
    -1px 1px 0 black,
     1px -1px 0 black,
    -1px -1px 0 black;
 }
-
