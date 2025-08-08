@@ -310,3 +310,23 @@ section p {
 .artwork-gallery img:hover {
   transform: scale(1.03);
 }
+
+/* Trident + Signature Glow Activation */
+.trident.glow-in,
+.signature-img.glow-in {
+  opacity: 1;
+  filter: drop-shadow(0 0 20px gold) brightness(1.5);
+  transition: filter 0.8s ease-in-out;
+}
+
+/* Outline Text Class */
+.outlined-text {
+  color: white;
+  -webkit-text-stroke: 1.2px black;
+  text-shadow:
+    1px 1px 0 black,
+   -1px 1px 0 black,
+    1px -1px 0 black,
+   -1px -1px 0 black;
+}
+
