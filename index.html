@@ -5,62 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>J. Eldridge – Enter the Mind</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* MOBILE GALLERY FIX */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      padding: 10px;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* HAMBURGER MENU */
-    .hamburger-btn {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      z-index: 1000;
-      cursor: pointer;
-    }
-
-    .hamburger-menu {
-      display: none;
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 200px;
-      height: 100%;
-      background: rgba(0,0,0,0.9);
-      color: white;
-      padding: 40px 20px;
-      z-index: 999;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .hamburger-menu a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-
-    .hamburger-menu.show {
-      display: flex;
-      animation: slideIn 0.3s ease forwards;
-    }
-
-    @keyframes slideIn {
-      from { transform: translateX(100%); }
-      to { transform: translateX(0); }
-    }
-  </style>
 </head>
 <body>
 
@@ -74,9 +18,7 @@
     <button class="enter-btn" id="enterBtn">ENTER THE MIND</button>
   </div>
 
-  <div id="fallZone" class="fall-zone"></div>
-
-  <div class="content">
+  <div class="content" style="display: none;">
     <section class="about-me" id="about">
       <h2>About Me</h2>
       <p>
@@ -91,7 +33,6 @@
         <div class="gallery-item">
           <a href="kaiko1.html">
             <img src="kaiko1.jpeg" alt="Kaiko artwork by J. Eldridge" class="artwork-image" />
-            <div class="title-overlay"></div>
             <h3>Kaiko "Nostalgia"</h3>
           </a>
         </div>
@@ -99,7 +40,6 @@
         <div class="gallery-item">
           <a href="lvl2.html">
             <img src="lvl2.PNG" alt="Lvl2 artwork by J. Eldridge" class="artwork-image" />
-            <div class="title-overlay"></div>
             <h3>Lvl. 2! GO!</h3>
             <p>imagine...</p>
           </a>
@@ -109,7 +49,7 @@
           <img src="chatgptitty.jpg" alt="ChatGPTitty Gallery by J. Eldridge" class="artwork-image" />
           <div class="title-overlay">
             <h3>Chat GPTitty</h3>
-            <p> 18 n' up!<br>You've been warned!</p>
+            <p>18 n' up!<br>You've been warned!</p>
           </div>
         </div>
 
@@ -133,7 +73,7 @@
       <p>If you've made it this far, I am beyond grateful for your time and interest! If you saw something you liked enough to hang on your wall (or someone else’s), the wait is almost over!</p>
       <button class="shop-btn" onclick="location.href='shop.html'">Beyond this Click, It's Consensual!</button>
     </section>
-          
+
     <button id="backToTop" class="back-to-top">⬆ BACK TO TOP</button>
     <button id="hamburgerBtn" class="hamburger-btn" style="display: none;">☰</button>
 
@@ -150,14 +90,31 @@
     const enterBtn = document.getElementById('enterBtn');
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const content = document.querySelector('.content');
+    const hero = document.querySelector('.hero');
 
     enterBtn.addEventListener('click', () => {
-      document.querySelector('.hero').style.display = 'none'; 
-      hamburgerBtn.style.display = 'block'; // Show after entering
+      hero.style.display = 'none';
+      content.style.display = 'block';
+      hamburgerBtn.style.display = 'block';
     });
 
     hamburgerBtn.addEventListener('click', () => {
       hamburgerMenu.classList.toggle('show');
+    });
+
+    // Back to top visibility
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
 
