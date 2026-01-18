@@ -1,11 +1,17 @@
+/* style.css */
+
+/* RESET */
+* { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
   margin: 0;
-  background: url("stars.jpg") center center / cover no-repeat fixed;
-  color: white;
+  color: #fff;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: url("stars.jpg") center center / cover no-repeat fixed;
+  overflow-x: hidden;
 }
 
+/* Soft dark veil so art/captions read over stars */
 .content{
   min-height: 100vh;
   background: rgba(0,0,0,0.55);
@@ -16,34 +22,33 @@ body {
 .workwall{
   width: min(1100px, 92vw);
   margin: 0 auto;
-  padding: 6vh 0 10vh;
+  padding: 8vh 0 10vh;
   display: flex;
   flex-direction: column;
-  gap: 8vh;
+  gap: 9vh;
 }
 
-.workcard{
-  margin: 0;
-}
+.workcard{ margin: 0; }
 
 .workcard img{
   width: 100%;
+  height: auto;
   display: block;
   border-radius: 14px;
 }
 
 .workcard figcaption{
   margin-top: 14px;
-  opacity: 0.85;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  opacity: 0.82;
   font-size: 0.85rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
 }
 
-/* NAV REVEAL ZONE */
+/* AFTER-WORK NAV */
 .afterwork{
   padding: 10vh 0 8vh;
-  border-top: 1px solid rgba(255,255,255,0.15);
+  border-top: 1px solid rgba(255,255,255,0.12);
 }
 
 .afterwork-inner{
@@ -52,7 +57,7 @@ body {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 24px;
+  gap: 22px;
 }
 
 .afterwork-inner h2{
@@ -68,10 +73,11 @@ body {
 }
 
 .navlinks a{
-  color: white;
+  color: rgba(255,255,255,0.92);
   text-decoration: none;
   opacity: 0.85;
   border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
 }
 
 .navlinks a:hover{
@@ -79,30 +85,31 @@ body {
   border-bottom-color: rgba(255,255,255,0.7);
 }
 
-/* SIMPLE PANELS */
+/* ABOUT / CONTACT PANELS */
 .panel{
   width: min(1100px, 92vw);
   margin: 0 auto;
   padding: 8vh 0;
-  border-top: 1px solid rgba(255,255,255,0.12);
+  border-top: 1px solid rgba(255,255,255,0.10);
 }
 
 .panel h3{
   margin: 0 0 12px 0;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   font-size: 0.95rem;
-  opacity: 0.9;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.95;
 }
 
 .panel p{
   margin: 0;
-  max-width: 65ch;
-  line-height: 1.6;
+  max-width: 70ch;
+  line-height: 1.7;
+  font-size: 1.05rem;
   opacity: 0.9;
 }
 
-.panel a{ color: white; }
+.panel a{ color: rgba(255,255,255,0.95); }
 
 /* BACK TO TOP */
 .back-to-top{
@@ -113,10 +120,29 @@ body {
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.25);
   background: rgba(0,0,0,0.45);
-  color: white;
+  color: #fff;
   cursor: pointer;
-  opacity: 0.85;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 50;
+}
+
+.back-to-top.show{
+  opacity: 0.9;
+  pointer-events: auto;
 }
 
 .back-to-top:hover{ opacity: 1; }
 
+/* MOBILE */
+@media (max-width: 768px){
+  .workwall{
+    padding: 6vh 0 8vh;
+    gap: 6vh;
+  }
+  .afterwork-inner{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
