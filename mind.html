@@ -6,11 +6,12 @@
   <title>J. Eldridge</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+
+  <!-- WORK MUST COME FIRST -->
   <main class="content">
 
-    <!-- WORK WALL (no title, no nav, just the work) -->
+    <!-- WORK WALL (no "Gallery", no nav) -->
     <section class="workwall" id="work">
       <figure class="workcard">
         <img src="kaiko1.jpeg" alt="Kaiko “Nostalgia”" loading="lazy" />
@@ -37,7 +38,6 @@
     <section class="afterwork" id="afterwork">
       <div class="afterwork-inner">
         <h2>J. Eldridge</h2>
-
         <nav class="navlinks" aria-label="Site">
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
@@ -50,7 +50,8 @@
     <section class="panel" id="about">
       <h3>About</h3>
       <p>
-        Atlanta-based artist working in process-driven abstraction—surface, texture, repetition.
+        Atlanta-based artist focused on process-driven, material-forward work—surface, texture, repetition.
+        Digital drawing is practice; physical work is the arena.
       </p>
     </section>
 
@@ -58,18 +59,33 @@
     <section class="panel" id="contact">
       <h3>Contact</h3>
       <p>
-        <a href="mailto:YOURNAME@EMAIL.COM">YOURNAME@EMAIL.COM</a><br />
+        <a href="mailto:YOUREMAIL@DOMAIN.COM">YOUREMAIL@DOMAIN.COM</a><br />
         <a href="https://instagram.com/YOURHANDLE" target="_blank" rel="noreferrer">Instagram</a>
       </p>
     </section>
 
-    <button id="backToTop" class="back-to-top" type="button">⬆ BACK TO TOP</button>
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
+      ⬆ Back to top
+    </button>
+
   </main>
 
   <script>
     const btn = document.getElementById('backToTop');
-    btn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    const toggleBtn = () => {
+      if (window.scrollY > 600) btn.classList.add('show');
+      else btn.classList.remove('show');
+    };
+
+    window.addEventListener('scroll', toggleBtn, { passive: true });
+    toggleBtn();
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   </script>
 </body>
 </html>
+
 
