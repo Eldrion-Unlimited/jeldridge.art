@@ -162,3 +162,35 @@ body:not(.hero-page) {
   border-bottom-color: rgba(255,255,255,0.7);
 }
 
+/* ===== NSFW WORK CARD ===== */
+
+.nsfw-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nsfw .nsfw-label {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 180, 180, 0.9);
+  border: 1px solid rgba(255, 120, 120, 0.6);
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.nsfw img {
+  filter: brightness(0.92);
+}
+
+.nsfw:hover img {
+  filter: brightness(1);
+}
+
+.nsfw:hover .nsfw-label {
+  color: #ffcccc;
+  border-color: #ffcccc;
+}
+
