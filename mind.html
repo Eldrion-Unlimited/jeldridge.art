@@ -3,54 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Enter the Mind – J. Eldridge</title>
+  <title>J. Eldridge</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      background: url('stars.jpg') center center / cover no-repeat fixed;
-      color: white;
-    }
-  </style>
 </head>
+
 <body>
-  <div class="content">
+  <main class="content">
 
-    <section class="gallery" id="gallery">
-      <h2>Gallery</h2>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <a href="kaiko1.html">
-            <img src="kaiko1.jpeg" alt="Kaiko artwork" class="artwork-image" />
-            <h3>Kaiko “Nostalgia”</h3>
-          </a>
-        </div>
+    <!-- WORK WALL (no title, no nav, just the work) -->
+    <section class="workwall" id="work">
+      <figure class="workcard">
+        <img src="kaiko1.jpeg" alt="Kaiko “Nostalgia”" loading="lazy" />
+        <figcaption>Kaiko “Nostalgia”</figcaption>
+      </figure>
 
-        <div class="gallery-item">
-          <a href="lvl2.html">
-            <img src="lvl2.PNG" alt="Lvl 2 artwork" class="artwork-image" />
-            <h3>Lvl. 2! GO!</h3>
-          </a>
-        </div>
+      <figure class="workcard">
+        <img src="lvl2.PNG" alt="Lvl. 2! GO!" loading="lazy" />
+        <figcaption>Lvl. 2! GO!</figcaption>
+      </figure>
 
-        <div class="gallery-item">
-          <a href="comingsoon.html">
-            <img src="comingoon.jpg" alt="ComingSoon" class="artwork-image" />
-            <h3>Coming Soon</h3>
-          </a>
-        </div>
+      <figure class="workcard">
+        <img src="chatgptitty.jpg" alt="Chat GPTitty" loading="lazy" />
+        <figcaption>Chat GPTitty</figcaption>
+      </figure>
 
-        <div class="gallery-item">
-          <a href="chatgptitty.html">
-            <img src="chatgptitty.jpg" alt="ChatGPTitty" class="artwork-image" />
-            <h3>Chat GPTitty</h3>
-          </a>
-        </div>
+      <figure class="workcard">
+        <img src="comingoon.jpg" alt="Coming Soon" loading="lazy" />
+        <figcaption>Coming Soon</figcaption>
+      </figure>
+    </section>
+
+    <!-- NAV ONLY AFTER THE WORK -->
+    <section class="afterwork" id="afterwork">
+      <div class="afterwork-inner">
+        <h2>J. Eldridge</h2>
+
+        <nav class="navlinks" aria-label="Site">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="index.html">Home</a>
+        </nav>
       </div>
     </section>
 
-    <!-- ... rest of mind.html stays the same -->
+    <!-- ABOUT -->
+    <section class="panel" id="about">
+      <h3>About</h3>
+      <p>
+        Atlanta-based artist working in process-driven abstraction—surface, texture, repetition.
+      </p>
+    </section>
 
-    <button id="backToTop" class="back-to-top">⬆ BACK TO TOP</button>
-  </div>
+    <!-- CONTACT -->
+    <section class="panel" id="contact">
+      <h3>Contact</h3>
+      <p>
+        <a href="mailto:YOURNAME@EMAIL.COM">YOURNAME@EMAIL.COM</a><br />
+        <a href="https://instagram.com/YOURHANDLE" target="_blank" rel="noreferrer">Instagram</a>
+      </p>
+    </section>
+
+    <button id="backToTop" class="back-to-top" type="button">⬆ BACK TO TOP</button>
+  </main>
+
+  <script>
+    const btn = document.getElementById('backToTop');
+    btn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
 </body>
 </html>
+
