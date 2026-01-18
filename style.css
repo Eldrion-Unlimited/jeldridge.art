@@ -1,6 +1,10 @@
-/* RESET */
+/* ================= RESET ================= */
 * { box-sizing: border-box; }
-html, body { height: 100%; }
+
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   color: #fff;
@@ -8,7 +12,10 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= HERO PAGE ONLY ================= */
+/* ======================================================
+   HERO PAGE ONLY  (index.html)
+   ====================================================== */
+
 body.hero-page {
   background: #000;
 }
@@ -50,6 +57,7 @@ body.hero-page {
   cursor: pointer;
 }
 
+/* Flicker cone */
 .light-flicker {
   position: absolute;
   top: 0;
@@ -72,14 +80,14 @@ body.hero-page {
 }
 
 @keyframes flickerCone {
-  0% { opacity: 0.05; }
-  50% { opacity: 1; }
+  0%   { opacity: 0.05; }
+  50%  { opacity: 1; }
   100% { opacity: 0.7; }
 }
 
 @keyframes dustFloat {
-  0%,100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(5px); }
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(5px); }
 }
 
 .trident.glow-in,
@@ -100,11 +108,17 @@ body.hero-page {
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  transition: transform 0.2s ease;
 }
 
-.enter-btn:hover { transform: scale(1.05); }
+.enter-btn:hover {
+  transform: scale(1.05);
+}
 
-/* ================= MIND PAGE ONLY ================= */
+/* ======================================================
+   MIND PAGE ONLY  (mind.html)
+   ====================================================== */
+
 body:not(.hero-page) {
   background: url("stars.jpg") center center / cover no-repeat fixed;
 }
@@ -116,7 +130,7 @@ body:not(.hero-page) {
 }
 
 /* WORK WALL */
-.workwall{
+.workwall {
   width: min(1100px, 92vw);
   margin: 0 auto;
   padding: 8vh 0 10vh;
@@ -125,12 +139,18 @@ body:not(.hero-page) {
   gap: 9vh;
 }
 
-.workcard img{
+.workcard {
+  margin: 0;
+}
+
+.workcard img {
   width: 100%;
+  height: auto;
+  display: block;
   border-radius: 14px;
 }
 
-.workcard figcaption{
+.workcard figcaption {
   margin-top: 14px;
   opacity: 0.82;
   font-size: 0.85rem;
@@ -138,13 +158,13 @@ body:not(.hero-page) {
   text-transform: uppercase;
 }
 
-/* AFTER WORK NAV */
-.afterwork{
+/* AFTER-WORK NAV */
+.afterwork {
   padding: 10vh 0 8vh;
   border-top: 1px solid rgba(255,255,255,0.12);
 }
 
-.afterwork-inner{
+.afterwork-inner {
   width: min(1100px, 92vw);
   margin: 0 auto;
   display: flex;
@@ -152,17 +172,19 @@ body:not(.hero-page) {
   gap: 22px;
 }
 
-.navlinks a{
+.navlinks a {
   color: rgba(255,255,255,0.9);
   text-decoration: none;
   border-bottom: 1px solid transparent;
 }
 
-.navlinks a:hover{
+.navlinks a:hover {
   border-bottom-color: rgba(255,255,255,0.7);
 }
 
-/* ===== NSFW WORK CARD ===== */
+/* ======================================================
+   NSFW WORK CARD (ChatGPTitty)
+   ====================================================== */
 
 .nsfw-link {
   text-decoration: none;
@@ -193,4 +215,21 @@ body:not(.hero-page) {
   color: #ffcccc;
   border-color: #ffcccc;
 }
+
+/* ======================================================
+   MOBILE
+   ====================================================== */
+
+@media (max-width: 768px) {
+  .workwall {
+    padding: 6vh 0 8vh;
+    gap: 6vh;
+  }
+
+  .afterwork-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 
